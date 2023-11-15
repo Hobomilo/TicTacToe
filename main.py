@@ -6,6 +6,7 @@ screen_width, screen_height = 1920, 1080
 running = True
 #import the shit
 def main():
+    global running  # Declare running as a global variable
     pygame.init()
     screen = pygame.display.set_mode((screen_width, screen_height))
     pygame.display.set_caption('TicTacToe')
