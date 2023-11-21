@@ -1,8 +1,15 @@
+import os
 import pygame
-class Background():
+
+class Background:
     def __init__(self):
-        self.sprite = pygame.image.load('\\FS-052\studuser$\Gr11\o.chaudhari\My Documents\GitHub\TicTacToe\Sprites\ackground.py')
+        # Get the path of the current script
+        script_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Load background image
+        image_path = os.path.join(script_path, 'ackground.png')
+        self.sprite = pygame.image.load(image_path)
         self.position = 0
-        #Load background image
-    
-        
+
+    def draw(self, surface):
+        surface.blit(self.sprite, (self.position, 0))
