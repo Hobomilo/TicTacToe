@@ -1,7 +1,7 @@
 import os
 import pygame
 from background import Background
-from TicTacToe import TicTacToe
+from Tictactoe import TicTacToe
 
 
 
