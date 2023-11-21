@@ -1,7 +1,7 @@
 import pygame
 import math
 from pygame.math import Vector2
-from background import Background
+import Background
 screen_width, screen_height = 1920, 1080
 running = True
 #import the shit
@@ -18,6 +18,12 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
                 pygame.quit()
+
+                # Draw background
+        Background.load
+
+        # Update display
+        pygame.display.flip()
         #infinte running loop
 
 
