@@ -31,13 +31,28 @@ class TicTacToe:
                     draw_o(screen, row, col, cell_width, cell_height)
 
 def draw_x(screen, row, col, cell_width, cell_height):
-    x = col * cell_width
-    y = row * cell_height
-    pygame.draw.line(screen, (255, 255, 255), (x, y), (x + cell_width, y + cell_height), 5)
-    pygame.draw.line(screen, (255, 255, 255), (x, y + cell_height), (x + cell_width, y), 5)
+    x = col * cell_width + cell_width // 2
+    y = row * cell_height + cell_height // 2
+    line_length = int(min(cell_width, cell_height) * 0.6)  # Downsize by 40%
+
+    if col == 0:  # Adjust for the left column
+        x += int(cell_width * 0.4)  # Increase the adjustment more to the right
+    elif col == 2:  # Adjust for the right column
+        x -= int(cell_width * 0.2)  # Adjusted less to make it more to the left
+
+    x_start = x - line_length // 2
+    y_start = y - line_length // 2
+    pygame.draw.line(screen, (0, 0, 0), (x_start, y_start), (x_start + line_length, y_start + line_length), 3)
+    pygame.draw.line(screen, (0, 0, 0), (x_start, y_start + line_length), (x_start + line_length, y_start), 3)
 
 def draw_o(screen, row, col, cell_width, cell_height):
     x = col * cell_width + cell_width // 2
     y = row * cell_height + cell_height // 2
-    radius = min(cell_width, cell_height) // 2 - 5
-    pygame.draw.circle(screen, (255, 255, 255), (x, y), radius, 5)
+    radius = int(min(cell_width, cell_height) // 2 * 0.6)  # Downsize by 40%
+
+    if col == 0:  # Adjust for the left column
+        x += int(cell_width * 0.4)  # Increase the adjustment more to the right
+    elif col == 2:  # Adjust for the right column
+        x -= int(cell_width * 0.2)  # Adjusted less to make it more to the left
+
+    pygame.draw.circle(screen, (0, 0, 0), (x, y), radius, 3)
